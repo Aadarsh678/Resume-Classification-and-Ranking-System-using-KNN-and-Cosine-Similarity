@@ -1,0 +1,41 @@
+{% extends 'admin_panel.html' %}
+{% block title %}View Resumes{% endblock %}
+{% block content %}
+{% block css %}<link rel="stylesheet" href="{{url_for('static',filename='css/job_application.css')}}">{% endblock %}
+    <h1>Job Applications</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Application ID</th>
+                <th>Candidate Name</th>
+                <th>Candidate Email</th>
+                <th>Resume</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for application in job_applications %}
+                <tr>
+                    <td>{{ application['application_id'] }}</td>
+                    <td>{{ application['full_name'] }}</td>
+                    <td>{{ application['email'] }}</td>
+                    
+                    <td><div class="view-link"><a href="{{ url_for('uploaded_file', filename=application['file_path']) }}" target="_blank">View Resume</a></div></td>
+                    
+
+
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="classify-link">
+    {% if jobId %}
+    <!-- Link using the jobId variable passed from the route -->
+    
+        <a href="{{ url_for('classified_resumes', job_id=jobId) }}" >View Classified and Ranked resume </a>
+    
+    {% else %}
+        <p>No job ID available.</p>
+    {% endif %}
+    </div>
+    
+{% endblock %}

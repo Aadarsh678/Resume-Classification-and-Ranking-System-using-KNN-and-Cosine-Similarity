@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Dashboard{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+    {% block css %}{% endblock %}
+
+    
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-6A7shX+gWrK+GJp8cOfioPxRPywSL0Z2C9x8+0sU98YghXeii5gEK18JZ3aEXLpo" crossorigin="anonymous"></script>
+
+    <div class="sidebar">
+        <div class="brand">
+            <h1>Dashboard</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('create_job_posting') }}">Create Job Posting</a></li>
+                <li><a href="{{ url_for('view_job_admin') }}">View Jobs</a></li>
+                <li><a href="{{ url_for('message_admin') }}">View Messages</a></li>
+                <li><a href="{{ url_for('logout') }} ">Logout</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="content">
+        {% block content %}
+        <script>
+            function hideFlashMessage(button) {
+                button.parentNode.style.display = 'none';
+            }
+        </script>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="flash-message">
+                        {{ message }}
+                        <span class="cancel-button" onclick="hideFlashMessage(this)">Cancel</span>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        {% endblock %}
+    </div>
+</body>
+</html>

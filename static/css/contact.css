@@ -1,0 +1,78 @@
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+form input[type="text"],
+form input[type="email"],
+form textarea {
+    width: 80%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form textarea {
+    height: 150px;
+}
+
+form button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+
+.contact-info {
+    margin-top: 40px;
+}
+
+.contact-info h2 {
+    margin-bottom: 10px;
+}
+
+/* styles.css */
+
+.flash-message {
+    padding: 10px;
+    background-color: #7cf195;
+    border: 1px solid #f5c6cb;
+    color: green;
+    border-radius: 5px;
+    position: relative;
+    
+}
+
+.cancel-button {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    cursor: pointer;
+    color: green;
+    
+}
+
+.error-message {
+    color: red;
+    font-size: 0.8em;
+    margin-top: 5px; /* Adjust margin-top as needed */
+    text-align: left; /* Align the error message to the left */
+}

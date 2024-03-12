@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% block css %}<link rel="stylesheet" href="{{url_for('static',filename='css/home.css')}}">{% endblock %}
+<div class="container">
+    <h1>Available Jobs</h1>
+    <div class="job-listings">
+        {% for job in job_postings %}
+        <div class="job-box">
+            <a href="{{ url_for('view_job', job_id=job[0]) }}">
+                <!-- <img src="{{ job.company_image }}" alt="{{ job.company}}"> -->
+                <h2>{{ job[5] }}</h2>
+                <p>{{ job[1] }}</p>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block title %}Contact Us{% endblock %}
+{% block content %}
+{% block css %}<link rel="stylesheet" href="{{url_for('static',filename='css/contact.css')}}">{% endblock %}
+<!-- contact.html -->
+
+<script>
+    function hideFlashMessage(button) {
+        button.parentNode.style.display = 'none';
+    }
+</script>
+
+<div class="container">
+    <h1>Contact Us</h1>
+    <p>Have a question or feedback? Reach out to us using the form below:</p>
+    <!-- contact.html -->
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+            <div class="flash-message">
+                {{ message }}
+                <span class="cancel-button" onclick="hideFlashMessage(this)">Cancel</span>
+            </div>
+        {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+    <form method="post" action="/submit_contact">
+        <label for="name">Name:</label>
+        <div class="error-message">
+            {% for message in get_flashed_messages(category_filter=["error_name"]) %}
+                {{ message }}
+            {% endfor %}
+        </div>
+        <input type="text" id="name" name="name" required><br>
+        
+        <label for="email">Email:</label>
+        <div class="error-message">
+            {% for message in get_flashed_messages(category_filter=["error_email"]) %}
+                {{ message }}
+            {% endfor %}
+        </div>
+        <input type="email" id="email" name="email" required><br>
+        
+        <label for="subject">Subject:</label>
+        <input type="text" id="subject" name="subject" required><br>
+        
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea><br>
+        
+        <button type="submit">Submit</button>
+       
+    </form>
+    
+    <div class="contact-info">
+        <h2>Contact Information</h2>
+        <p>Email: rcr@gmail.com</p>
+        <p>Phone: 984581682</p>
+        <p>Address: Bijay chowk, Kathmandu, Nepal</p>
+    </div>
+</div>
+{% endblock %}

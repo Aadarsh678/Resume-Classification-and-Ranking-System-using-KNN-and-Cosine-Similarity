@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %}About Us{% endblock %}
+{% block content %}
+{% block css %}<link rel="stylesheet" href="{{url_for('static',filename='css/about.css')}}">{% endblock %}
+<div class="about-section">
+    <div class="profile-section">
+        <div class="profile">
+            <img src="{{ url_for('static', filename='images/Adarsh.jpg') }}" alt="photo 1">
+            <h3>Adarsh Gautam</h3>
+            
+        </div>
+        <div class="profile">
+            <img src="{{ url_for('static', filename='images/avishek.jpg') }}" alt="Photo 2">
+            <h3>Avishek Majhi</h3>
+            
+        </div>
+        <div class="profile">
+            <img src="{{ url_for('static', filename='images/sagar.jpg') }}" alt="Photo 3">
+            <h3>Sagar Majhi</h3>
+            
+        </div>
+    </div>
+    <hr>
+    <div class="journey-section">
+        <h2>Our Journey</h2>
+        <p>In our final year of the BSc.CSIT program, we wanted to leverage our knowledge and skill to address a real-world problem.
+            With a shared interest in corporate recruting and technology, we were inspired to develop a system that could help recruiter
+            to classify and rank the resumes inorder to select the best candidate for the jobs.
+        </p>
+    </div>
+    <hr>
+    <div class="why-section">
+        <h2>Why Choose Us?</h2>
+        <p>Our application, Resume Classification and Ranking, utilizes cutting-edge technologies such as KNN and cosine similarity to provide accurate and efficient resume classification and ranking services. Whether you're a job seeker or a recruiter, our platform offers unparalleled insights and assistance to streamline the hiring process.</p>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'admin_panel.html' %}
+{% block title %}Edit Jobs{% endblock %}
+{% block content %}
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/edit_job.css') }}">
+{% endblock %}
+
+<div class="edit-container">
+
+  <h2>Edit Job Posting</h2>
+
+  <form class="edit-form" method="post" action="{{ url_for('edit_job', job_id=job_posting[0]) }}">
+    <label for="company">Company Name:</label>
+        <div class="error-message">
+            {% for message in get_flashed_messages(category_filter=["error_company"]) %}
+                {{ message }}
+            {% endfor %}
+        </div>
+        <input type="text" name="company" value="{{ job_posting[5] }}" required><br>
+    <label for="title">Job Title:</label>
+    <div class="error-message">
+      {% for message in get_flashed_messages(category_filter=["error_title"]) %}
+          {{ message }}
+      {% endfor %}
+  </div>
+    <input type="text" name="title" value="{{ job_posting[1] }}" required><br>
+
+    <label for="description">Job Description:</label>
+    <textarea name="description" rows="4" required>{{ job_posting[2] }}</textarea><br>
+
+    <label for="requirements">Job Requirements:</label>
+    <textarea name="requirements" rows="4" required>{{ job_posting[3] }}</textarea><br>
+
+    <label for="salary">Salary:</label>
+    <input type="text" name="salary" value="{{ job_posting[4] }}" required><br>
+    <div class="error-message">
+      {% for message in get_flashed_messages(category_filter=["error_salary"]) %}
+        {{ message }}
+      {% endfor %}
+    </div>
+
+    <button type="submit">Update Job Posting</button>
+  </form>
+
+</div>
+
+{% endblock %}

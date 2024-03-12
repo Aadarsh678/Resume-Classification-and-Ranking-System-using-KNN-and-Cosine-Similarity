@@ -1,0 +1,47 @@
+{% extends 'admin_panel.html' %}
+{% block title %}Create Job Posting{% endblock %}
+{% block content %}
+{% block css %}<link rel="stylesheet" href="{{url_for('static',filename='css/create_job.css')}}">{% endblock %}
+    <h1>Create Job Posting</h1>
+    
+    <form method="post" action="{{ url_for('create_job_posting') }}" enctype="multipart/form-data">
+        <label for="company">Company Name:</label>
+        <div class="error-message">
+            {% for message in get_flashed_messages(category_filter=["error_company"]) %}
+                {{ message }}
+            {% endfor %}
+        </div>
+        <input type="text" name="company" value="{{ form_data.company}}" required><br>
+        <!-- Add input for company image -->
+        <!-- <label for="company_image">Company Image:</label>
+        <input type="file" name="company_image" accept="image/*" required><br> -->
+        <!-- End of company image input -->
+        <label for="title">Job Title:</label>
+        <div class="error-message">
+            {% for message in get_flashed_messages(category_filter=["error_title"]) %}
+                {{ message }}
+            {% endfor %}
+        </div>
+        
+        
+        <input type="text" name="title" value="{{ form_data.title }}" required><br>
+        
+        <label for="description">Job Description:</label>
+        <textarea name="description" required>{{ form_data.description}}</textarea><br>
+        <label for="requirements">Job Requirements:</label>
+        <textarea name="requirements" required>{{ form_data.requirements }}</textarea><br>
+        <label for="salary">Salary(NRs.):</label>
+        <div class="error-message">
+            {% for message in get_flashed_messages(category_filter=["error_salary"]) %}
+                {{ message }}
+            {% endfor %}
+        </div>
+        <input type="text" name="salary" required><br>
+        <label for="negotiable">Negotiable:</label>
+        <select name="negotiable" id="negotiable" class="custom-select">
+            <option value="negotiable">Negotiable</option>
+            <option value="non-negotiable">Non-Negotiable</option>
+        </select><br>
+        <button type="submit">Create Job Posting</button>
+    </form>
+{% endblock %}

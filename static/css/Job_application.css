@@ -1,0 +1,72 @@
+/* Styles for the job applications table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+} 
+
+/* td > a{
+    text-decoration: none;
+    color: black;
+} */
+
+h1{
+    text-align: center;
+}
+
+th {
+    background-color: #f2f2f2;
+    
+}
+
+/* Styles for the "View Resume" link */
+.view-link {
+    text-decoration: none;
+    color: #010e1b;
+    display: block;
+    
+    width: fit-content;
+    
+   
+}
+.view-link >a {
+    text-decoration: none;
+    color: #010e1b;
+}
+
+.view-link:hover {
+    text-decoration: none;
+    transform: translateY(-5px);
+}
+
+/* Styles for the "Classify Resumes" link */
+.classify-link {
+    display: block;
+    margin-top: 20px;
+    font-size: 16px;
+    width: fit-content;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    
+}
+
+.classify-link:hover {
+    background-color: #218838;
+    transform: translateY(-5px);
+}
+
+.classify-link > a{
+    text-decoration: none;
+    color: #010e1b;
+}
+
